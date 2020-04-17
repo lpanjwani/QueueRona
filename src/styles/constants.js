@@ -1,12 +1,11 @@
-const Constants = () => {
-	return {
-		RED: 'red',
-		WHITE: 'white',
-		BLACK: 'black',
-		HALF_VISIBLE_BLACK: 'rgba(0,0,0,.5)',
-		LIGHT_BLUE: '#00FFFF',
-		YELLOW: 'yellow'
-	};
+const Constants = {
+	RED: 'red',
+	WHITE: 'white',
+	BLACK: 'black',
+	HALF_VISIBLE_BLACK: 'rgba(0, 0, 0, 0.5)',
+	LIGHT_BLUE: 'rgba(0, 255, 255, 1)',
+	YELLOW: 'yellow',
+	LIGHT_GREEN: '#90eea8'
 };
 
 export default Constants;

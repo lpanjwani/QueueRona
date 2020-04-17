@@ -14,9 +14,6 @@ export default function Home({ navigation }) {
 	);
 }
 
-const width = Dimensions.get('window').width;
-const height = Dimensions.get('window').height;
-
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,

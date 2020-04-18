@@ -5,12 +5,31 @@ import {
 	StoreHeader as StoreInfo,
 	FullScreenBackground as LoadingScreen
 } from '../components';
+import { RESERVE_AVAILABLE_TICKET } from '../utils/API';
 import Colors from '../styles/constants';
 
 export default function Confirmation({ route, navigation }) {
 	const { bizID, slot, item, photo } = route.params;
+	const [isConfirmed, setConfirmation] = useState(false);
+	const [SlotText, setSlotText] = useState(false);
 
-	const [isConfirmed, setConfirmation] = useState(true);
+	useEffect(() => {
+		async function REVERSE_TICKET_API() {
+			const res = await RESERVE_AVAILABLE_TICKET(bizID, slot);
+			setTimeout(() => setConfirmation(true), 1000);
+		}
+		REVERSE_TICKET_API();
+	}, [bizID, slot]);
+
+	useEffect(() => {
+		if (slot === 1) {
+			setSlotText('10AM\n-12PM');
+		} else if (slot === 2) {
+			setSlotText('12PM\n-2PM');
+		} else {
+			setSlotText('2PM\n-4PM');
+		}
+	}, [slot]);
 
 	return isConfirmed ? (
 		<View style={styles.container}>
@@ -31,7 +50,7 @@ export default function Confirmation({ route, navigation }) {
 						}}
 						style={styles.permitQR}
 					/>
-					<Text style={styles.userName}>10AM{'\n'}-12PM</Text>
+					<Text style={styles.userName}>{SlotText}</Text>
 				</View>
 			</View>
 		</View>

@@ -62,7 +62,12 @@ export default function Symptoms({ route, navigation }) {
 						<Picker.Item label="None of the above" value="None" />
 					</Picker>
 				</View>
-				<TouchableOpacity style={styles.continueButton} onPress={() => _NextPage()}>
+				<TouchableOpacity
+					style={{
+						...styles.continueButton,
+						backgroundColor: isBlocked ? Colors.RED : Colors.LIGHT_BLUE
+					}}
+					onPress={() => _NextPage()}>
 					<Text style={styles.continueButtonText}>
 						{isBlocked ? 'Sorry, Your Suspended!' : 'Continue'}
 					</Text>
@@ -129,8 +134,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		width: width,
-		height: height * 0.06,
-		backgroundColor: Colors.LIGHT_BLUE
+		height: height * 0.06
 	},
 	continueButtonText: {
 		color: Colors.WHITE,

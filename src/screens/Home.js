@@ -9,7 +9,7 @@ export default function Home({ navigation }) {
 			<Header />
 			<MapView />
 			<Slider navigation={navigation} />
-			<PanicButton />
+			<PanicButton navigation={navigation} />
 		</View>
 	);
 }
